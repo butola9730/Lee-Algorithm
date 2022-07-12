@@ -39,32 +39,28 @@ def findShortestPathLength(mat, src, dest):
     visited[i][j] = True
  
   
-    # minimum distance from the source
+   
     q.append((i, j, 0))
  
   
     min_dist = sys.maxsize
  
-    # loop till queue is empty
+   
     while q:
  
-        # dequeue front node and process it
+        
         (i, j, dist) = q.popleft()
  
-        # (i, j) represents a current cell, and `dist` stores its
-        # minimum distance from the source
- 
-        # if the destination is found, update `min_dist` and stop
+       
         if i == x and j == y:
             min_dist = dist
             break
  
       
         for k in range(4):
-            # check if it is possible to go to position
-            # (i + row[k], j + col[k]) from current position
+           
             if isValid(mat, visited, i + row[k], j + col[k]):
-                # mark next cell as visited and enqueue it
+                
                 visited[i + row[k]][j + col[k]] = True
                 q.append((i + row[k], j + col[k], dist + 1))
  
